@@ -18,3 +18,15 @@ output: one default
 Foo("two ","parameter")
 ```
 output: two parameter
+
+####Scala Regix
+
+```scala
+val date = """(\d\d\d\d)-(\d\d)-(\d\d)""".r
+
+"2012-03-12" match
+{
+    case date(year,month,day) => println(s"this is year $year")
+}
+
+```
