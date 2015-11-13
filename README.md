@@ -1,6 +1,6 @@
 # ScalaTricks
 
-scala code for selflearning
+scala code for learn
 
 ####Scala Default Input Parameter
 
@@ -30,3 +30,30 @@ val date = """(\d\d\d\d)-(\d\d)-(\d\d)""".r
 }
 
 ```
+
+```scala
+val data = "Important dates in history: 2004-01-20, 1958-09-05, 2010-10-06, 2011-07-15"
+val res1 = date findFirstIn dates getOrElse "none found"
+println(res1)
+//out: 2004-01-20
+
+val res2 = date findAllIn dates
+println(res2.toList)
+//out: List(2004-01-20, 1958-09-05, 2010-10-06, 2011-07-15)
+
+val res3 = date replaceAllIn(dates,"rep")
+println(res3)
+//Important dates in history: rep, rep, rep, rep
+
+val res4 = date replaceAllIn(dates,m=>m.group(1)+m.group(2))
+println(res4)
+//Important dates in history: 200401, 195809, 201010, 201107
+
+val docSpree = """2004(?:-\d{2}){2}""".r
+val docView  = date replaceAllIn (dates, _ match {
+      case docSpree() => "Historic doc spree!"
+      case _          => "Something else happened"
+    })
+//Important dates in history: Historic doc spree!, Something else happened, Something else happened, Something else happened
+```
+
