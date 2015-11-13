@@ -19,7 +19,7 @@ Foo("two ","parameter")
 ```
 output: two parameter
 
-####Scala Regix
+####Scala Regex
 
 ```scala
 val date = """(\d\d\d\d)-(\d\d)-(\d\d)""".r
