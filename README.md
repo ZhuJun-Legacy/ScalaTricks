@@ -32,7 +32,7 @@ val date = """(\d\d\d\d)-(\d\d)-(\d\d)""".r
 ```
 
 ```scala
-val data = "Important dates in history: 2004-01-20, 1958-09-05, 2010-10-06, 2011-07-15"
+val dates = "Important dates in history: 2004-01-20, 1958-09-05, 2010-10-06, 2011-07-15"
 val res1 = date findFirstIn dates getOrElse "none found"
 println(res1)
 //out: 2004-01-20
