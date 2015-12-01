@@ -57,7 +57,7 @@ val docView  = date replaceAllIn (dates, _ match {
 //Important dates in history: Historic doc spree!, Something else happened, Something else happened, Something else happened
 ```
 
-#####scala match case with if clause
+####scala match case with if clause
 
 ```scala
 "str" match {
