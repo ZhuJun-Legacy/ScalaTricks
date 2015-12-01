@@ -64,5 +64,7 @@ val docView  = date replaceAllIn (dates, _ match {
     case b:String if b contains "s" => println("yes")
     case _ => println("no")
 }
+
+//yes
 ```
-yes
+
