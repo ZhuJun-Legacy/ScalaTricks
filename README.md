@@ -68,3 +68,37 @@ val docView  = date replaceAllIn (dates, _ match {
 //yes
 ```
 
+
+####scala yield
+
+val res = for {子句} yield {变量或表达式}
+
+yield将结果以数组形式存入res
+> 著作权归作者所有。
+商业转载请联系作者获得授权，非商业转载请注明出处。
+作者：2gua
+链接：http://zhuanlan.zhihu.com/guagua/19752481
+来源：知乎
+```scala
+object YieldDemo {
+    private val files = (new java.io.File(".")).listFiles
+
+    private def fileLines(file: java.io.File) =
+        scala.io.Source.fromFile(file).getLines.toList
+
+    def main(args: Array[String]): Unit = {
+        val lineLengths =
+        for {
+            file <- files
+            if file.getName.endsWith(".txt")
+
+            line <- fileLines(file)
+            trimmedLine = line.trim
+            if trimmedLine.matches(".*棒.*")
+        } yield line + "：合计" + trimmedLine.length + "个字。"
+
+        lineLengths.foreach(println)
+    }
+}
+```
+
