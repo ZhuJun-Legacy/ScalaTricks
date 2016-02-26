@@ -79,24 +79,21 @@ yield将结果以数组形式存入res
 作者：2gua
 链接：http://zhuanlan.zhihu.com/guagua/19752481
 来源：知乎
+
 ```scala
 object YieldDemo {
     private val files = (new java.io.File(".")).listFiles
-
     private def fileLines(file: java.io.File) =
         scala.io.Source.fromFile(file).getLines.toList
-
     def main(args: Array[String]): Unit = {
         val lineLengths =
         for {
             file <- files
             if file.getName.endsWith(".txt")
-
             line <- fileLines(file)
             trimmedLine = line.trim
             if trimmedLine.matches(".*棒.*")
         } yield line + "：合计" + trimmedLine.length + "个字。"
-
         lineLengths.foreach(println)
     }
 }
